@@ -1,0 +1,38 @@
+<style>
+h1{
+    text-align:center;
+}
+</style>
+
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<div class="container card" style="background-color:#FAEBD7; border:1.5px solid black;"><br>
+    <h1>Available openings</h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Company Name</th>
+                <th>Position</th>
+                <th>Job Description</th>
+                <th>Salary (INR)</th>
+                <th>Experience (Yrs)</th>
+                <th>Location</th>
+                <th>Apply</th>
+            </tr>
+            {% for c in companies %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.position}}</td>
+                    <td>{{c.description}}</td>
+                    <td>{{c.salary}}</td>
+                    <td>{{c.experience}}</td>
+                    <td>{{c.Location}}</td>
+                    <td><a href="{% url 'apply' %}" class="btn btn-info btn-sm" type="submit">Apply</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

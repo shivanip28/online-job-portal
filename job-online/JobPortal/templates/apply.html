@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<head>
+    <style>
+        .box{
+            border:2px solid black;
+            width: 800px;
+            background-color:#FAEBD7;
+        }
+        p{
+            font-family: "Lucida Console", "Courier New", monospace;
+            font-weight:bold;
+        }
+        input{
+            width : 300px;   
+            margin-left:20px;
+            border-radius:8px;
+            height:32px;
+            font-size:14px;
+            margin-bottom:10px;  
+        }
+        form{
+            background-color:peach;
+            height:50%;
+            margin-left:150px;
+        }
+        h4{
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align:center;
+            margin-bottom:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<div class=applyform>
+<div class=" box jumbotron container">
+    <h4> Application Form </h4><br>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <input style="width:120px; margin-left:150px; font-size:15px; font-family: "Lucida Console", "Courier New", monospace; " type="submit" class="btn btn-success btn-sm" value="SUBMIT">
+    </form>
+</div>
+{% endblock %}
+</div>
